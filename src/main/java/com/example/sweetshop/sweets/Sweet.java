@@ -24,21 +24,15 @@ public class Sweet {
     @JsonProperty("sweetname")
     String sweetName;
 
-    @Column(
-            nullable = false
-    )
+    @Column(nullable = false)
     @JsonProperty("category")
     String category;
 
-    @Column(
-            nullable = false
-    )
+    @Column(nullable = false)
     @JsonProperty("price")
     Double price;
 
-    @Column(
-            nullable = false
-    )
+    @Column(nullable = false)
     @JsonProperty("quantity")
     Integer quantity;
 }

@@ -1,1 +1,18 @@
-spring.application.name=sweetshop
+spring:
+  application:
+    name: sweetshop
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sweetshop
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
