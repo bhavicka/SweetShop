@@ -1,8 +1,6 @@
 package com.example.sweetshop.sweets;
 
 import lombok.AllArgsConstructor;
-import org.springframework.core.io.support.ResourcePatternResolver;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,5 +10,9 @@ public class SweetService {
 
     public Sweet save(Sweet sweet){
         return sweetRepository.save(sweet);
+    }
+
+    public void deleteBySweetName(String sweetName){
+        sweetRepository.deleteBySweetName(sweetName);
     }
 }

@@ -1,12 +1,9 @@
 package com.example.sweetshop.sweets;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @RestController
@@ -17,5 +14,11 @@ public class SweetController {
     @PostMapping("/add")
     public ResponseEntity<Sweet> save(@RequestBody Sweet sweet) {
         return ResponseEntity.ok(sweetService.save(sweet));
+    }
+
+    @Transactional
+    @DeleteMapping("/delete/{sweetname}")
+    public void deleteBySweetName(@PathVariable("sweetname") String sweetname) {
+        sweetService.deleteBySweetName(sweetname);
     }
 }
