@@ -34,4 +34,10 @@ public class SweetServiceTest {
         verify(sweetRepository, times(1)).save(sweet);
     }
 
+    @Test
+    void testDeleteSweet(){
+        String sweetname = "Kaju katli";
+        sweetService.deleteSweetByName(sweetname);
+        verify(sweetRepository, times(1)).deleteSweetByName(sweetname);
+    }
 }
