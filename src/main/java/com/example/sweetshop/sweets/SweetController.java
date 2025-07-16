@@ -40,4 +40,20 @@ public class SweetController {
             @PathVariable("max") Double max) {
         return sweetService.searchByPriceRange(min, max);
     }
+
+    @PutMapping("/purchase/{sweetname}/{quantity}")
+    public void updatePurchase(
+            @PathVariable("sweetname") String sweetname,
+            @PathVariable("quantity") Integer quantity
+    ){
+        sweetService.updatePurchase(sweetname, quantity);
+    }
+
+    @PutMapping("/restore/{sweetname}/{quantity}")
+    public void updateRestore(
+            @PathVariable("sweetname") String sweetname,
+            @PathVariable("quantity") Integer quantity
+    ){
+        sweetService.updateRestore(sweetname, quantity);
+    }
 }

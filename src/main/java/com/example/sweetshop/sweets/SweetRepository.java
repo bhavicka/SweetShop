@@ -12,4 +12,8 @@ public interface SweetRepository extends JpaRepository<Sweet, Integer> {
     List<Sweet> findByCategory(String category);
 
     List<Sweet> findByPriceBetween(Double min, Double max);
+
+    boolean existsBySweetNameAndQuantityGreaterThanEqual(String sweetname, Integer qt);
+
+    boolean existsSweetsBySweetName(String sweetname);
 }

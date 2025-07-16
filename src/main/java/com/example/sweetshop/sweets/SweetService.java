@@ -29,4 +29,22 @@ public class SweetService {
     public List<Sweet> searchByPriceRange(Double min, Double max){
         return sweetRepository.findByPriceBetween(min, max);
     }
+
+    public void updatePurchase(String sweetname, Integer qt){
+        boolean ob = sweetRepository.existsBySweetNameAndQuantityGreaterThanEqual(sweetname, qt);
+        if(!ob)
+            return;
+        Sweet sweet = sweetRepository.findBySweetName(sweetname);
+        sweet.setQuantity(sweet.getQuantity()-qt);
+        sweetRepository.save(sweet);
+    }
+
+    public void updateRestore(String sweetname, Integer quantity) {
+        boolean ob = sweetRepository.existsSweetsBySweetName(sweetname);
+        if(!ob)
+            return;
+        Sweet sweet = sweetRepository.findBySweetName(sweetname);
+        sweet.setQuantity(sweet.getQuantity()+quantity);
+        sweetRepository.save(sweet);
+    }
 }
